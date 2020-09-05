@@ -23,11 +23,12 @@ if(is_player_on(bossPlayer)){
 			}
 		}
 	}
+	var healthBarSprite = sprite_get("healthbar");
 	with bossPlayerID{
 		set_hitbox_value(AT_HEALTH_BAR, AT_HEALTH_BAR_HITBOX, HG_HITBOX_TYPE, 2);
 		set_hitbox_value(AT_HEALTH_BAR, AT_HEALTH_BAR_HITBOX, HG_LIFETIME, 2);
 		set_hitbox_value(AT_HEALTH_BAR, AT_HEALTH_BAR_HITBOX, HG_PRIORITY, 0);
-		set_hitbox_value(AT_HEALTH_BAR, AT_HEALTH_BAR_HITBOX, HG_PROJECTILE_SPRITE, sprite_get("healthbar"));
+		set_hitbox_value(AT_HEALTH_BAR, AT_HEALTH_BAR_HITBOX, HG_PROJECTILE_SPRITE, healthBarSprite);
 		set_hitbox_value(AT_HEALTH_BAR, AT_HEALTH_BAR_HITBOX, HG_PROJECTILE_GROUND_BEHAVIOR, 1);
 		set_hitbox_value(AT_HEALTH_BAR, AT_HEALTH_BAR_HITBOX, HG_PROJECTILE_WALL_BEHAVIOR, 1);
 		set_hitbox_value(AT_HEALTH_BAR, AT_HEALTH_BAR_HITBOX, HG_PROJECTILE_ENEMY_BEHAVIOR, 1);
