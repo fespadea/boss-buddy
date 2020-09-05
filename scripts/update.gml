@@ -69,10 +69,10 @@ if(array_length(bossPlayerID)){
 			boss_buddy_jump_change = jump_change*2;
 			boss_buddy_walk_speed = walk_speed*2;
 			boss_buddy_walk_accel = walk_accel*2;
-			boss_buddy_initial_dash_speed = initial_dash_speed*2.1;
+			boss_buddy_initial_dash_speed = initial_dash_speed*2.3;
 			boss_buddy_dash_speed = dash_speed*2;
 		} else{
-			knockback_adj = 0.000000000000001;
+			knockback_adj = 0.1;
 			ground_friction = boss_buddy_ground_friction;
 			max_fall = boss_buddy_max_fall;
 			fast_fall = boss_buddy_fast_fall;
@@ -95,12 +95,12 @@ if(array_length(bossPlayerID)){
 					wrap_time = 120;
 					boss_buddy_alive = false;
 				} else if(state_timer >= wrap_time-2){
-					create_deathbox(x, y-char_height/2, 2, 2, player, true, 0, 2, 2);
+					create_deathbox(x, round(y-char_height/2), 2, 2, player, true, 0, 2, 2);
 					boss_buddy_alive = true;
 				} else {
 					y--;
 					var char_width = sprite_get_bbox_right(hurtbox_spr) - sprite_get_bbox_left(hurtbox_spr) + 1;
-					var modValue = ceil(lerp(20, 8, state_timer/wrap_time));
+					var modValue = ceil(lerp(20, 20, state_timer/wrap_time));
 					if(state_timer % modValue == 1){
 						spawn_hit_fx(x+random_func(0, char_width, true)-char_width/2, y-random_func(1, char_height, true), 143);
 						sound_play(asset_get("sfx_abyss_explosion"));
